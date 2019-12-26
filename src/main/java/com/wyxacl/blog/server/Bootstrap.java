@@ -1,4 +1,4 @@
-package com.wyxacl.blog;
+package com.wyxacl.blog.server;
 
 public class Bootstrap {
     public static void main(String[] args) {
