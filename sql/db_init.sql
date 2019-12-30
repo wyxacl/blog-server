@@ -145,7 +145,7 @@ CREATE TABLE `wp_options` (
   PRIMARY KEY (`option_id`) USING BTREE,
   UNIQUE KEY `option_name` (`option_name`) USING BTREE,
   KEY `autoload` (`autoload`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='The Options set under the Administration > Settings panel are stored in the wp_options table. See Option Reference for option_name and default values.';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -174,7 +174,7 @@ CREATE TABLE `wp_postmeta` (
   PRIMARY KEY (`meta_id`) USING BTREE,
   KEY `post_id` (`post_id`) USING BTREE,
   KEY `meta_key` (`meta_key`(191)) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='Each post features information called the meta data and it is stored in the wp_postmeta. Some plugins may add their own information to this table.';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -224,7 +224,7 @@ CREATE TABLE `wp_posts` (
   KEY `type_status_date` (`post_type`,`post_status`,`post_date`,`id`) USING BTREE,
   KEY `post_parent` (`post_parent`) USING BTREE,
   KEY `post_author` (`post_author`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='The core of the WordPress data is the posts. It is stored in the wp_posts table. Also Pages and navigation menu items are stored in this table.';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -253,7 +253,7 @@ CREATE TABLE `wp_usermeta` (
   PRIMARY KEY (`umeta_id`) USING BTREE,
   KEY `user_id` (`user_id`) USING BTREE,
   KEY `meta_key` (`meta_key`(191)) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='Each user features information called the meta data';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -291,7 +291,7 @@ CREATE TABLE `wp_users` (
   KEY `user_login_key` (`user_login`) USING BTREE,
   KEY `user_nicename` (`user_nicename`) USING BTREE,
   KEY `user_email` (`user_email`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='The list of users';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -318,7 +318,7 @@ CREATE TABLE `wp_term_relationships` (
   `gmt_modified` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`object_id`,`term_taxonomy_id`) USING BTREE,
   KEY `term_taxonomy_id` (`term_taxonomy_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='Posts are associated with categories and tags from the wp_terms table and this association is maintained in the wp_term_relationships table. The association of links to their respective categories are also kept in this table.';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -349,7 +349,7 @@ CREATE TABLE `wp_term_taxonomy` (
   PRIMARY KEY (`term_taxonomy_id`) USING BTREE,
   UNIQUE KEY `term_id_taxonomy` (`term_id`,`taxonomy`) USING BTREE,
   KEY `taxonomy` (`taxonomy`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='This table describes the taxonomy (category, link, or tag) for the entries in the wp_terms table.';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -378,7 +378,7 @@ CREATE TABLE `wp_termmeta` (
   PRIMARY KEY (`meta_id`) USING BTREE,
   KEY `term_id` (`term_id`) USING BTREE,
   KEY `meta_key` (`meta_key`(191)) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='Each term features information called the meta data and it is stored in wp_termmeta.';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -407,7 +407,7 @@ CREATE TABLE `wp_terms` (
   PRIMARY KEY (`term_id`) USING BTREE,
   KEY `slug` (`slug`(191)) USING BTREE,
   KEY `name` (`name`(191)) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='The categories for both posts and links and the tags for posts are found within the wp_terms table.';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
