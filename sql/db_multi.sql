@@ -1,4 +1,5 @@
--- WORDPRESS datebase description
+-- WORDPRESS database description
+-- http://wpdocs.osdn.jp/%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E6%A7%8B%E9%80%A0
 -- https://codex.wordpress.org/Database_Description
 -- https://core.trac.wordpress.org/browser/tags/5.3/src/wp-admin/includes/schema.php#L0
 
